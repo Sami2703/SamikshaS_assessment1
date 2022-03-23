@@ -1,0 +1,26 @@
+div {
+	    box-sizing: border-box;
+		width: 100%;
+		border: 100px solid black;
+		float: left;
+		align-content: center;
+		align-items: center;
+        background-color: rgba(red, green, blue, alpha);
+		}
+
+form {
+        margin: 0 auto;
+        width: 600px;
+        
+     }
+body
+     {
+             margin:0px;
+             background-color:#f26724;
+             background-image:url(images/background.jpg);
+             color:#f9fcf5;
+             font-family:Arial, Helvetica, sans-serif;
+     }
+
+   
+   

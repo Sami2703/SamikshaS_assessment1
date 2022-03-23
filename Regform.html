@@ -1,0 +1,99 @@
+<html>
+	<head>
+		<script>
+var stateObject = {
+"India": { "Maharashtra": ["Pune", "Mumbai"],
+"Gujarat": ["Surat", "Rajkot"],
+"Punjab": ["Amritsar", "Jalandhar"],
+"Goa": ["North Goa", "South Goa"],
+},
+"Australia": {
+"South Australia": ["Dunstan", "Mitchell"],
+"Victoria": ["Altona", "Euroa"]
+},
+"Canada": {
+"Alberta": ["Acadia", "Bighorn"],
+"Columbia": ["Washington", "Atlantico"]
+},
+}
+window.onload = function () {
+var countySel = document.getElementById("countySel"),
+stateSel = document.getElementById("stateSel"),
+districtSel = document.getElementById("districtSel");
+for (var country in stateObject) {
+countySel.options[countySel.options.length] = new Option(country, country);
+}
+countySel.onchange = function () {
+stateSel.length = 1; // remove all options bar first
+districtSel.length = 1; // remove all options bar first
+if (this.selectedIndex < 1) return; // done 
+for (var state in stateObject[this.value]) {
+stateSel.options[stateSel.options.length] = new Option(state, state);
+}
+}
+countySel.onchange(); // reset in case page is reloaded
+stateSel.onchange = function () {
+districtSel.length = 1; // remove all options bar first
+if (this.selectedIndex < 1) return; // done 
+var district = stateObject[countySel.value][this.value];
+for (var i = 0; i < district.length; i++) {
+districtSel.options[districtSel.options.length] = new Option(district[i], district[i]);
+}
+}
+}
+
+</script>
+</head>
+
+	<body>  
+	<link rel="stylesheet" href="Regform.css" type="text/css">
+<div class="container">
+		<h1 style="text-align: center;">REGISTRATION FORM</h1>
+		<form action="file:///C:/Samikshas-assessment1/index.html" method="get" id="nameform">
+		
+			
+			<p>First Name: <input type="text"
+							size="30" name="FName" pattern="[A-Za-z]{}" placeholder="Enter your first name" required/></p>
+			<br />
+			<p>Last Name: <input type="text"
+							size="30" name="LName" pattern="[A-Za-z]{}" placeholder="Enter your last name" required/></p>
+			<br />
+			<p>E-mail :    <input type="email"
+							size="30" name="EMail" pattern="[A-Za-z @]{}" placeholder="Enter your email" required/></p>
+            <br />
+			<p>Mobile No: <input type="tel"
+						size="30" name="Telephone" pattern="[789][0-9]{9}" placeholder="Enter your mobile no" required/></p>
+			<br />
+
+<form name="myform" id="myForm">
+Select Country: <select name="state" id="countySel" size="1" required>
+<option value="" selected="selected">Select Country</option>
+</select>
+
+<br><br>
+Select State: <select name="countrya" id="stateSel" size="1" required>
+<option value="" selected="selected">Please select Country first</option>
+</select>
+
+<br><br>
+Select District: <select name="district" id="districtSel" size="1" required>
+<option value="" selected="selected">Please select State first</option>
+</select>
+<br><br>
+
+    
+</form>
+			
+<center>
+ 
+  <b> <button type="reset" form="nameform" value="Clear Form">Clear Form</button></b>
+  <b> <button type="submit" form="nameform" value="Submit" >Submit</button></b>
+</center>
+			
+
+	</form>
+</div>
+	</body>
+</html>
+
+
